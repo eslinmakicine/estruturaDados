@@ -54,8 +54,7 @@ public class Aula12 {
 		System.out.println(arrayList.set(0, "Z"));
 		
 		System.out.println(arrayList); /* exibe array */
-
-
+		
 	}
 
 }

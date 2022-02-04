@@ -83,7 +83,7 @@ public class Lista<T> {
 		return s.toString();
 	}
 
-	public Object busca(int posicao) {
+	public T busca(int posicao) {
 		validaPosicao(posicao);
 
 		return this.elementos[posicao];
@@ -139,4 +139,66 @@ public class Lista<T> {
 	}
 
 
+	/*
+	 * EXERC 01 - Melhore a classe Lista e implemente o método contém, semelhante ao
+	 * método contains da classe ArrayList O método contains faz uma busca no array
+	 * a partir do elemento informado e retorna um boolean informando se encontrou
+	 * ou não
+	 */
+	public boolean contem(T elemento) {
+
+		return buscaElemento(elemento) > -1;
+		
+	} 
+	
+	/*
+	 * EXERC 02 - Melhore a classe Lista e implemente o método ultimoIndice,
+	 * semelhante ao método lastIndexOf da classe ArrayList.
+	 */
+	public int lastIndexOf(T elemento) {
+		
+		for(int i = tamanho; i > 0 ; i--) {
+			if(this.elementos[i] == elemento) {
+				return i;
+			}
+		}
+		return -1;
+	} 
+
+	/*
+	 * EXERC 03 - Melhore a classe Lista e implemente o método remove(T elemento),
+	 * onde será possível remover um elemento da lista passando o mesmo como
+	 * parâmetro
+	 */
+	public boolean removeElemento(T elemento) {
+
+		//validaPosicao(posicao);
+		for(int i = 0; i < tamanho; i++) {
+			if(this.elementos[i] == elemento) {
+				removeElemento(i);
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/*
+	 * EXERC 04 - Melhore a classe Lista e implemente o método limpar, onde todos os elementos
+	 * da lista são removidos. Esse método é semelhante ao método clear da classse
+	 * ArrayList.
+	 */
+	public boolean limpar() {
+
+		if (!(this.tamanho > 0)) {
+			return false;
+		}
+
+		for (int i=0; i<this.tamanho; i++){
+			this.elementos[i] = null;
+		}
+		this.tamanho = 0;
+		return true;
+	}
+	
 }
+
